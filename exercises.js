@@ -5,6 +5,14 @@
  * @return {string} reversed
  * ie: "cat" => "tac"
  */
+var firstReverse = function(str) {
+    if (typeof(str) === "string"){
+        return str.split("").reverse().join("");
+    }
+    else {
+        return null;
+    }
+}
 
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
@@ -13,6 +21,14 @@
  * @return {string} in alphabetical order
  * ie: "cake" => "acek"
  */
+var alphaOrder = function(str) {
+    if (typeof(str) === "string"){
+        return str.split("").sort().join("");
+    }
+    else {
+        return null;
+    }
+}
 
  /** Function: vowelCount
  * The function will take the num parameter being passed in and
@@ -21,6 +37,14 @@
  * @return {number} count of vowels
  * ie: "oreo" => 3
  */
+var vowelCount = function(str) {
+    if (typeof(str) === "string"){
+        return str.match(/[aeiou]/gi).length;
+    }
+    else {
+        return null;
+    }
+}
 
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
@@ -30,7 +54,18 @@
  * @return {string} as hours:minutes
  * ie: 68 => 1:8
  */
-
+var timeConvert = function(number) {
+    var hours = 0;
+    var min = 0; 
+    if (typeof number === 'number'){
+        hours = Math.floor(number/60);
+        min = number%60;
+        return hours + ":" + min;
+    }
+    else {
+        return null;
+    }
+}
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
  * num times (second argument). Return an empty string if num is a negative number
@@ -39,7 +74,24 @@
  * @return {string} repeated num times
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
+var repeatString = function(str,times){
+    if (typeof str === "string" && typeof times === "number"){
+        if(times > 0){
+            var repeat = "";
+            for(i = 0; i < times; i++){
+                repeat = repeat.concat(str);
+            }
+            return repeat;
+        }
+        else {
+            return "";
+        }
+    }
+    else {
+        return null;
+    }
 
+}
 
 /**
  * Below here we see a module.exports which is set to an object with a bunch of keys.
@@ -56,9 +108,9 @@
  */
 
 module.exports = {
-    firstReverse: null,
-    alphaOrder: null,
-    vowelCount: null,
-    timeConvert: null,
-    repeatString: null
+    firstReverse: firstReverse,
+    alphaOrder: alphaOrder,
+    vowelCount: vowelCount,
+    timeConvert: timeConvert,
+    repeatString: repeatString
 }
